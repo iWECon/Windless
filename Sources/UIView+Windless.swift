@@ -16,11 +16,11 @@ public extension UIView {
      */
     var isWindlessable: Bool {
         get { return objc_getAssociatedObject(self, &AssociatedKeys.Windless.isWindlessable) as? Bool ?? false }
-        set { objc_setAssociatedObject(self, &AssociatedKeys.Windless.isWindlessable, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+        set { objc_setAssociatedObject(self, &AssociatedKeys.Windless.isWindlessable, newValue, .OBJC_ASSOCIATION_ASSIGN) }
     }
     @IBInspectable var isSkeletonable: Bool {
         get { isWindlessable }
-        set { isWindlessable = newValue }
+        set { objc_setAssociatedObject(self, &AssociatedKeys.Windless.isWindlessable, newValue, .OBJC_ASSOCIATION_ASSIGN) }
     }
     
     /**
