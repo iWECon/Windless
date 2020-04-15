@@ -14,9 +14,13 @@ public extension UIView {
      **isWindlessable** allows the view to be composed of skeletons.
      If true, the view becomes the skeleton of the loading view and is exposed to the animation. Default false
      */
-    @IBInspectable var isWindlessable: Bool {
+    var isWindlessable: Bool {
         get { return objc_getAssociatedObject(self, &AssociatedKeys.Windless.isWindlessable) as? Bool ?? false }
         set { objc_setAssociatedObject(self, &AssociatedKeys.Windless.isWindlessable, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+    }
+    @IBInspectable var isSkeletonable: Bool {
+        get { isWindlessable }
+        set { isWindlessable = newValue }
     }
     
     /**
